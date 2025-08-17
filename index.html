@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@ilham.pesstore</title>
+  <title>@ilham.efootball27</title>
   <style>
-    body {
+    /* Reset & Base Style */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Arial', sans-serif;
       background-color: #0a0a0a;
       color: #e0e0e0;
@@ -16,15 +21,21 @@
       align-items: center;
       flex-direction: column;
       min-height: 100vh;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
     }
 
+    /* Container */
     .container {
       text-align: center;
       max-width: 400px;
       width: 100%;
       padding: 20px;
+      position: relative;
+      z-index: 2;
     }
 
+    /* Profile Image */
     .profile-img {
       width: 120px;
       height: 120px;
@@ -32,8 +43,10 @@
       margin-bottom: 15px;
       border: 3px solid cyan;
       box-shadow: 0 0 15px cyan;
+      animation: glow 2s infinite alternate;
     }
 
+    /* Title & Bio */
     h1 {
       font-size: 22px;
       margin: 10px 0;
@@ -47,6 +60,7 @@
       color: #aaa;
     }
 
+    /* Link Button */
     .link-btn {
       display: block;
       background: transparent;
@@ -66,24 +80,73 @@
     .link-btn:hover {
       background: cyan;
       color: #0a0a0a;
-      box-shadow: 0 0 20px cyan;
+      box-shadow: 0 0 25px cyan, 0 0 50px cyan;
       transform: translateY(-3px);
     }
 
     .link-btn span {
       margin-right: 8px;
     }
+
+    /* Loading Spinner */
+    .loading {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(0, 255, 255, 0.3);
+      border-top: 4px solid cyan;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      box-shadow: 0 0 20px cyan;
+    }
+
+    /* Animations */
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px cyan; }
+      to { box-shadow: 0 0 25px cyan, 0 0 50px cyan; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
+  <script>
+    // Loader script
+    window.addEventListener("load", () => {
+      document.querySelector(".loading").style.display = "none";
+    });
+  </script>
 </head>
 <body>
+  <!-- Loading Spinner -->
+  <div class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Main Content -->
   <div class="container">
     <img src="pp.jpg" alt="Profile" class="profile-img">
-    <h1>@ilham.pesstore</h1>
-    <p class="bio">Selamat datang di halaman resmi Ilham Pesstore</p>
+    <h1>@ilham.efootball27</h1>
+    <p class="bio">Klik tombol di bawah untuk gabung dan ngobrol bareng seputar efootball 👇</p>
 
     <!-- Tombol Grup Mabar -->
-    <a class="link-btn" href="https://chat.whatsapp.com/LDlzWenVd8q8YP3Dl184nO?mode=ac_t" target="_blank">
-      <span>🎮</span> GRUP MABAR/NGOBROL² SEPUTAR EFOOTBALL
+    <a class="link-btn" href="https://chat.whatsapp.com/BuXspoDMN1z6roCCE214g5?mode=ac_t" target="_blank">
+      <span>🎮</span> GRUP MABAR / NGOBROL² SEPUTAR EFOOTBALL
     </a>
   </div>
 </body>
